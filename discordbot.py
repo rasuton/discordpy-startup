@@ -2,13 +2,14 @@
 import discord
 from discord.ext import tasks
 from discord.ext import commands
+from datetime import datetime 
 import os
 import traceback
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-CHANNEL_ID = "471251063715004420"
+target_channel_id = "471251063715004420"
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -23,8 +24,9 @@ async def ping(ctx):
     
 @tasks.loop(seconds=60)
 async def loop():
-    channel = client.get_channel(CHANNEL_ID)
-    await channel.send('時間だよ')  
+    message_channel = bot.get_channel(target_channel_id)
+    print(f"Got channel {message_channel}")
+    await message_channel.send("Your message")
 
 loop.start()
 bot.run(token)
