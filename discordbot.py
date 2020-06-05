@@ -8,6 +8,7 @@ import traceback
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
+client = discord.Client()
 
 target_channel_id = "471251063715004420"
 
@@ -37,7 +38,7 @@ async def loop():
     await message_channel.send("Your message")
     await asyncio.sleep(60)
     """
-@bot.command()
+@client.command()
 async def info():
     client.loop.create_task(my_task())
 
