@@ -39,7 +39,7 @@ async def loop():
     """
 @client.command()
 async def info():
-    client.loop.create_task()
+    client.loop.create_task(my_task())
 
 loop.start()
 bot.run(token)
