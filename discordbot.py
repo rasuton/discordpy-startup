@@ -1,15 +1,8 @@
 #coding:UTF-8
 import discord
 from discord.ext import tasks
-from discord.ext import commands
-from datetime import datetime 
-#from tasks import loop
-import asyncio
 
-import os
-import traceback
-
-bot = commands.Bot(command_prefix='/')
+#bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
 client = discord.Client()
@@ -24,7 +17,7 @@ async def my_task():
         message_channel = bot.get_channel(target_channel_id)
         print(f"Got channel {message_channel}")
         await message_channel.send("Your message")
-        await asyncio.sleep(10)"""
+        await asyncio.sleep(10)
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -36,6 +29,11 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
+    """
+    
+@tasks.loop(seconds=10)
+async def send_message_every_10sec():
+    await channel_sent.send("10秒経ったよ")
     
 @client.event
 async def on_ready():
@@ -43,8 +41,6 @@ async def on_ready():
     channel_sent = client.get_channel(target_channel_id)
     send_message_every_10sec.start()
 
-@tasks.loop(seconds=10)
-async def send_message_every_10sec():
-    await channel_sent.send("10秒経ったよ")
+
 
 client.run(token)
