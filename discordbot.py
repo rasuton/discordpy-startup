@@ -34,11 +34,13 @@ async def ping(ctx):
     
 @tasks.loop(seconds=10)
 async def send_message_every_10sec():
+    print("これ見えてるyonaahpsome？")
     await channel_sent.send("10秒経ったよ")
     
 @client.event
 async def on_ready():
     global channel_sent 
+    print("これ見えてる？")
     channel_sent = client.get_channel(target_channel_id)
     send_message_every_10sec.start()
 
