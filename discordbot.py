@@ -12,10 +12,14 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
+@bot.command()
+async def taso(ctx):
+    await ctx.send('  ( ☞三☞´3｀ )☞三☞それそれたそー')
 
 @bot.command()
-async def ping(ctx):
+async def pping(ctx):
     await ctx.send('pong')
+
 
 
 bot.run(token)
