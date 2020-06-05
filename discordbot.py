@@ -3,7 +3,7 @@ import discord
 from discord.ext import tasks
 from discord.ext import commands
 from datetime import datetime 
-from tasks import loop
+#from tasks import loop
 from asyncio import sleep
 import os
 import traceback
