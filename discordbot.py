@@ -37,7 +37,7 @@ async def loop():
     await message_channel.send("Your message")
     await asyncio.sleep(60)
     """
-@client.command()
+@bot.command()
 async def info():
     client.loop.create_task(my_task())
 
