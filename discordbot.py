@@ -26,4 +26,5 @@ async def loop():
     channel = client.get_channel(CHANNEL_ID)
     await channel.send('時間だよ')  
 
+loop.start()
 bot.run(token)
