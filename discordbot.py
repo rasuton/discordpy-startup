@@ -27,6 +27,7 @@ async def loop():
     message_channel = bot.get_channel(target_channel_id)
     print(f"Got channel {message_channel}")
     await message_channel.send("Your message")
+    await asyncio.sleep(60)
 
 loop.start()
 bot.run(token)
