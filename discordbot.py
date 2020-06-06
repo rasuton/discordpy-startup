@@ -9,20 +9,27 @@ client = discord.Client()
 async def on_ready():
     asyncio.ensure_future(greeting_gm())
 
+@client.event
+async def on_ready():
+    asyncio.ensure_future(greeting_gm())
+
 async def greeting_gm():
     channel = client.get_channel('718811732243382345')
     while True:
         print(datetime.datetime.now().minute)
-        if(datetime.datetime.now().minute==31):
+        if(datetime.datetime.now().minute==40):
+            print("いくわよ～女学院")
+            await asyncio.sleep(1)
+        if(datetime.datetime.now().minute==41):
             print("eeee")
-            await client.send_message(channel, 'イキスギィ～' + str(datetime.datetime.now()))
+            await client.send_message(channel, 'おはよう' + str(datetime.datetime.now()))
             await asyncio.sleep(55)
-        elif(datetime.datetime.now().minute==32):
-            await client.send_message(channel, 'ハメ～' + str(datetime.datetime.now()))
+        elif(datetime.datetime.now().minute==42):
+            await client.send_message(channel, 'gtegegeegう' + str(datetime.datetime.now()))
             await asyncio.sleep(55)
         else:
             await asyncio.sleep(55)
-            
+
 @client.event
 async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
@@ -32,4 +39,5 @@ async def on_message(message):
     # 「/neko」と発言したら「にゃーん」が返る処理
     if message.content == '/neko':
         await client.send_message(channel,'にゃーん')
+
 client.run(token)
