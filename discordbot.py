@@ -22,6 +22,7 @@ async def greeting_gm():
             await asyncio.sleep(55)
         else:
             await asyncio.sleep(55)
+            
 @client.event
 async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
