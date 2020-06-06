@@ -22,5 +22,13 @@ async def greeting_gm():
             await asyncio.sleep(55)
         else:
             await asyncio.sleep(55)
-
+@client.event
+async def on_message(message):
+    # メッセージ送信者がBotだった場合は無視する
+    channel = client.get_channel('718811732243382345')
+    if message.author.bot:
+        return
+    # 「/neko」と発言したら「にゃーん」が返る処理
+    if message.content == '/neko':
+        await client.send_message(channel,'にゃーん')
 client.run(token)
