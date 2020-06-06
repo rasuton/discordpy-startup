@@ -25,7 +25,7 @@ async def greeting_gm():
             await client.send_message(channel,'gtegegeegう' + str(datetime.datetime.now()))
             await asyncio.sleep(1)
         else:
-            await client.send_message(channel,"うごけや" + str(datetime.datetime.now()))
+            #await client.send_message(channel,"うごけや" + str(datetime.datetime.now()))
             await asyncio.sleep(1)
 
 @client.event
