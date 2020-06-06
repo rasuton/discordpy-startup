@@ -38,6 +38,7 @@ async def on_message(message):
         return
     # 「/neko」と発言したら「にゃーん」が返る処理
     if message.content == '/neko':
-        await client.send_message(channel,'にゃーん')
+        #await client.send_message(channel,'にゃーん')
+        await message.channel.send("メッセージ")
 
 client.run(token)
